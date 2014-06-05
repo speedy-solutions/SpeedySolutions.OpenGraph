@@ -157,3 +157,6 @@ $RECYCLE.BIN/
 
 # Roslyn files
 *.sln.ide/
+
+#NuGet packages
+*.nupkg

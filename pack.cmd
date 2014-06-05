@@ -1,0 +1,1 @@
+nuget pack src\SpeedySolutions.OpenGraph\SpeedySolutions.OpenGraph.nuspec

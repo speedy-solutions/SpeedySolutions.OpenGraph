@@ -4,19 +4,13 @@ using System.Reflection;
 
 namespace SpeedySolutions.OpenGraph
 {
-	public class OpenGraph
+	public class OpenGraph(string type = "website")
 	{
-		private readonly string _type;
-		public OpenGraph(string type = "website")
-		{
-			_type = type;
-		}
-
 		[OgProperty("title", required: true)]
 		public string Title { get; set; }
 
 		[OgProperty("type", required: true)]
-		public string Type { get { return _type; } }
+		public string Type { get; } = type;
 
 		[OgProperty("url", required: true)]
 		public Uri Url { get; set; }

@@ -4,7 +4,7 @@ namespace SpeedySolutions.OpenGraph
 {
 	public class OgImage
 	{
-		[OgProperty("")]
+		[OgProperty("", required: true)]
 		public Uri Url { get; set; }
 
 		[OgProperty("secure_url")]

@@ -3,18 +3,11 @@
 namespace SpeedySolutions.OpenGraph
 {
 	[AttributeUsage(AttributeTargets.Property)]
-	internal class OgPropertyAttribute : Attribute
+	internal class OgPropertyAttribute(string name, string ogNamespace = "og", bool required = false) : Attribute
 	{
-		public OgPropertyAttribute(string name, string ogNamespace = "og", bool required = false)
-		{
-			Name = name;
-			Namespace = ogNamespace;
-			Required = required;
-		}
-
-		public string Name { get; private set; }
-		public string Namespace { get; private set; }
-		public bool Required { get; private set; }
+		public string Name { get; } = name;
+		public string Namespace { get; } = ogNamespace;
+		public bool Required { get; } = required;
 
 		public override string ToString()
 		{

@@ -3,10 +3,12 @@ using System.Text;
 using System.Reflection;
 using System.Web;
 using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace SpeedySolutions.Web.OpenGraph
 {
-	public class OpenGraph(string title = null, Uri url = null, OgImage image = null, string type = "website") : IHtmlString
+	public class OpenGraph(string title = null, Uri url = null, OgFileWithSize image = null, string type = "website") : IHtmlString
 	{
 		[OgProperty("title", required: true)]
 		public string Title
@@ -24,49 +26,45 @@ namespace SpeedySolutions.Web.OpenGraph
 		= url;
 
 		[OgProperty("image", required: true)]
-		public OgImage Image
+		public ICollection<OgFileWithSize> Images
+		{ get; }
+		= image == null ?
+			new List<OgFileWithSize>() :
+			new List<OgFileWithSize> { image };
+
+
+		[OgProperty("audio")]
+		public OgFile Audio
 		{ get; set; }
-		= image;
+
+		[OgProperty("description")]
+		public string Description
+		{ get; set; }
+
+		[OgProperty("determiner")]
+		public Determiner? Determiner
+		{ get; set; }
+
+		[OgProperty("locale")]
+		public string Locale
+		{ get; set; }
+
+		[OgProperty("locale:alternate")]
+		public HashSet<string> AlternateLocale
+		{ get; }
+		= new HashSet<string>();
+
+		[OgProperty("site_name")]
+		public string SiteName
+		{ get; set; }
+
+		[OgProperty("video")]
+		public OgFileWithSize Video
+		{ get; set; }
 
 		public override string ToString()
 		{
-			var sb = new StringBuilder();
-
-			GetTags(this, sb);
-
-			return sb.ToString();
-		}
-
-		private static void GetTags(object obj, StringBuilder sb, string prefix = null)
-		{
-			var properties = obj.GetType().GetRuntimeProperties();
-
-			foreach(var prop in properties)
-			{
-				foreach(var attr in prop.GetCustomAttributes<OgPropertyAttribute>())
-				{
-					BuildTagForAttribute(obj, sb, prefix, prop, attr);
-				}
-			}
-		}
-
-		private static void BuildTagForAttribute(object obj, StringBuilder sb, string prefix, PropertyInfo prop, OgPropertyAttribute attr)
-		{
-			var value = prop.GetValue(obj);
-			var ogProperty = attr.ToString(prefix);
-			var isString = value is string;
-			if(attr.Required && (value == null || isString && string.IsNullOrWhiteSpace((string)value)))
-			{
-				throw new ArgumentNullException("value", string.Format("The property {0} is required", attr.ToString()));
-			}
-			else if(isString || value is Uri || value is int)
-			{
-				sb.AppendLine(string.Format(@"<meta property=""{0}"" content=""{1}"">", ogProperty, value));
-			}
-			else
-			{
-				GetTags(value, sb, ogProperty);
-			}
+			return OpenGraphSerializer.Serialize(this);
 		}
 
 		public string ToHtmlString()

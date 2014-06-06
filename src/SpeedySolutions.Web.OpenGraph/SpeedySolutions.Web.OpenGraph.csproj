@@ -37,9 +37,12 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OgImage.cs" />
+    <Compile Include="Determiner.cs" />
+    <Compile Include="OgFile.cs" />
+    <Compile Include="OgFileWithSize.cs" />
     <Compile Include="OgPropertyAttribute.cs" />
     <Compile Include="OpenGraph.cs" />
+    <Compile Include="OpenGraphSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

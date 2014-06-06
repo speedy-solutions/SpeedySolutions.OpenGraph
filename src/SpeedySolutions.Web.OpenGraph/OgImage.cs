@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpeedySolutions.OpenGraph
+namespace SpeedySolutions.Web.OpenGraph
 {
 	public class OgImage
 	{

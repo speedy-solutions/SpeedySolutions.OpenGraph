@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpeedySolutions.OpenGraph
+namespace SpeedySolutions.Web.OpenGraph
 {
 	[AttributeUsage(AttributeTargets.Property)]
 	internal class OgPropertyAttribute(string name, string ogNamespace = "og", bool required = false) : Attribute

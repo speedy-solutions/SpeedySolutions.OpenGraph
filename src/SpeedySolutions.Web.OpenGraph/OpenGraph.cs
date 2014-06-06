@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Text;
 using System.Reflection;
+using System.Web;
 
-namespace SpeedySolutions.OpenGraph
+namespace SpeedySolutions.Web.OpenGraph
 {
-	public class OpenGraph(string type = "website")
+	public class OpenGraph(string title = null, Uri url = null, OgImage image = null, string type = "website")
 	{
 		[OgProperty("title", required: true)]
-		public string Title { get; set; }
+		public string Title { get; set; } = title;
 
 		[OgProperty("type", required: true)]
 		public string Type { get; } = type;
 
 		[OgProperty("url", required: true)]
-		public Uri Url { get; set; }
+		public Uri Url { get; set; } = url;
 
 		[OgProperty("image", required: true)]
-		public OgImage Image { get; set; }
+		public OgImage Image { get; set; } = image;
 
 		public override string ToString()
 		{
@@ -25,6 +26,11 @@ namespace SpeedySolutions.OpenGraph
 			GetTags(this, sb);
 
 			return sb.ToString();
+		}
+
+		public IHtmlString ToHtmlString()
+		{
+			return new HtmlString(ToString());
 		}
 
 		private static void GetTags(object obj, StringBuilder sb, string prefix = null)

@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpeedySolutions.OpenGraph\SpeedySolutions.OpenGraph.csproj">
-      <Project>{3a0a685f-5fe5-45ad-ba0a-110ca2e0c86c}</Project>
-      <Name>SpeedySolutions.OpenGraph</Name>
+    <ProjectReference Include="..\SpeedySolutions.Web.OpenGraph\SpeedySolutions.Web.OpenGraph.csproj">
+      <Project>{1f0c6818-3282-48e5-8890-6fb68702c997}</Project>
+      <Name>SpeedySolutions.Web.OpenGraph</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
-        <id>SpeedySolutions.OpenGraph</id>
+        <id>SpeedySolutions.Web.OpenGraph</id>
         <version>1.0.0-alpha</version>
-        <title>SpeedySolutions.OpenGraph</title>
+        <title>SpeedySolutions.Web.OpenGraph</title>
         <authors>Vinicius Salvati Melquiades</authors>
         <owners>Vinicius Salvati Melquiades</owners>
         <licenseUrl>https://github.com/speedy-solutions/SpeedySolutions.OpenGraph/blob/master/LICENSE.md</licenseUrl>

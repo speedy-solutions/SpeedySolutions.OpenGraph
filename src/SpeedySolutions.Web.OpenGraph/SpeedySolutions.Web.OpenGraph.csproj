@@ -46,9 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SpeedySolutions.Web.OpenGraph.nuspec" />
+    <None Include="SpeedySolutions.Web.OpenGraph.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--The following line will tell MSBUILD to use the Roslyn preview compiler if it exists.-->
+  <Import Project="$(USERPROFILE)\AppData\Local\Microsoft\MSBuild\12.0\Microsoft.CSharp.targets\ImportAfter\Microsoft.CSharp.Roslyn.targets" Condition="Exists('$(USERPROFILE)\AppData\Local\Microsoft\MSBuild\12.0\Microsoft.CSharp.targets\ImportAfter\Microsoft.CSharp.Roslyn.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

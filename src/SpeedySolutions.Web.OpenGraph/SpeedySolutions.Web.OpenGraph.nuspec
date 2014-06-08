@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
-        <id>SpeedySolutions.Web.OpenGraph</id>
-        <version>1.0.0-alpha</version>
+        <id>$id$</id>
+        <version>$version$</version>
         <title>SpeedySolutions.Web.OpenGraph</title>
-        <authors>Vinicius Salvati Melquiades</authors>
-        <owners>Vinicius Salvati Melquiades</owners>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
         <licenseUrl>https://github.com/speedy-solutions/SpeedySolutions.OpenGraph/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/speedy-solutions/SpeedySolutions.OpenGraph</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>Simple .NET helper to generate Open Graph meta tags</description>
+        <description>$description$</description>
         <releaseNotes>The first beta can generate the basic/required tags for opengraph to work. Only the "website" type is valid</releaseNotes>
         <tags>metatag, facebook, opengraph</tags>
     </metadata>
-    <files>
-        <file src="bin\Release\SpeedySolutions.OpenGraph.dll" target="lib\portable-net45+wp8+win8\SpeedySolutions.OpenGraph.dll" />
-    </files>
 </package>
